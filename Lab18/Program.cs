@@ -16,14 +16,14 @@ namespace Lab18
             Console.WriteLine("Now in reverse\n");
             myList.PrintReverse();
             Node insertList = new Node { Next = null, Previous = null, Data = 100 };
-            myList.InsertAt(0, insertList);
-            Console.WriteLine("After Insert");
+            myList.InsertAt(0, insertList); // change where to insert at here
+            Console.WriteLine("After Insert\n");
             myList.PrintList();
-            Console.WriteLine("After remove");
-            myList.RemoveAt(15);
+            Console.WriteLine("After remove\n");
+            myList.RemoveAt(15); // change where to remove here
             myList.PrintList();
 
-            Console.WriteLine("\nNow for count array\n");
+            Console.WriteLine("\nNow for count array\n"); // starts the algorim in Howmany
             HowMany myCounting = new HowMany();
             myCounting.GetArrayInt = AddArray();
             HowMany.GetSameItems();
@@ -48,7 +48,8 @@ namespace Lab18
             myList.Add(14);
             myList.Add(15);
         }
-        public static int[] AddArray()
+
+        public static int[] AddArray() //ARRAY for algorithm
         {
             int[] myArray = new int[]{ 1, 2, 3, 2, 2, 4, 5, 5, 7, 8, 4, 4, 1, 0, 10 };
 

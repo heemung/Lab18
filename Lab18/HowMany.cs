@@ -8,12 +8,7 @@ namespace Lab18
 {
     class HowMany
     {
-
-        public int Data
-        {
-            set; get;
-        }
-        public static int[] getArrayInt;
+        private static int[] getArrayInt;
         public int[] GetArrayInt
         {
             get
@@ -30,20 +25,22 @@ namespace Lab18
 
         public static void GetSameItems()
         {
-            int tempCount = 0;
-            int newArraySize = 0;
-            int tempX;
-            int lengthofArray = getArrayInt.Length;
-            int[] tempArray = new int[lengthofArray];
-            Array.Copy(getArrayInt, tempArray, getArrayInt.Length);
-            Array.Sort(tempArray);
+            int tempCount = 0;                    //setting temp vars
+            int newArraySize = 0;                //setting temp vars
+            int tempX;                          //setting temp vars
 
-            while (tempArray.Length != 0)
+            int lengthofArray = getArrayInt.Length;
+
+            int[] tempArray = new int[lengthofArray]; // new array temp
+            Array.Copy(getArrayInt, tempArray, getArrayInt.Length); //copyes arrray 
+            Array.Sort(tempArray); // sorts array
+
+            while (tempArray.Length != 0)            //keeps going until the reinitalized temp array is 0 in length.
             {
-                foreach (var i in tempArray)
+                foreach (var i in tempArray)        // goes through all of i
                 {
 
-                    foreach (var j in tempArray)
+                    foreach (var j in tempArray)    //compares i to j if they match count
                     {
                         if (i == j)
                         {
@@ -52,15 +49,14 @@ namespace Lab18
 
                     }
 
-                    Console.WriteLine(i + " is in array " + tempCount + " times");
-                    newArraySize = lengthofArray - tempCount;
-                    int[] tempArrayTheSecond = new int[newArraySize];
+                    Console.WriteLine(i + " is in array " + tempCount + " times"); //prints out of many matches of i there is
+                    newArraySize = lengthofArray - tempCount;                      //setting new array size
+                    int[] tempArrayTheSecond = new int[newArraySize];              //makes another temp array with new size
 
-                    tempX = 0;
-
+                    tempX = 0;                                      //sets new count at 0
                     foreach (var k in tempArray)
                     {
-                        if (i != k)
+                        if (i != k)                                 //i not equal to k then put value in new array
                         {
                             tempArrayTheSecond[tempX] = k;
                             tempX++;
@@ -68,11 +64,11 @@ namespace Lab18
 
                     }
 
-                    lengthofArray = tempArrayTheSecond.Length;
-                    tempArray = new int[lengthofArray];
-                    Array.Copy(tempArrayTheSecond, tempArray, lengthofArray);
-                    tempCount = 0;
-                    break;
+                    lengthofArray = tempArrayTheSecond.Length;      //sets length of array to temp array number 2
+                    tempArray = new int[lengthofArray];             //The temp array reinitalizes at a new length equal to the 2nd temp array
+                    Array.Copy(tempArrayTheSecond, tempArray, lengthofArray); //copies temp array 2 to the first temp array
+                    tempCount = 0;                                  //resets temp count
+                    break;                                          //breaks because it would not go back to the first for each loop
                 }
             }
         }
